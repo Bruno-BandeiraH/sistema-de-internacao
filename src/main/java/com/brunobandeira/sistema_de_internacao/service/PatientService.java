@@ -5,6 +5,7 @@ import com.brunobandeira.sistema_de_internacao.repository.PatientRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 
 @Service
@@ -28,7 +29,13 @@ public class PatientService {
         return patientRepository.save(patient);
     }
 
-    public void deleteById(UUID id){
-        patientRepository.deleteById(id);
+    public boolean deleteById(UUID id){
+        Optional<Patient> patient = patientRepository.findById(id);
+        if(patient.isPresent()){
+            patientRepository.deleteById(id);
+            return true;
+        } else {
+            return false;
+        }
     }
 }
