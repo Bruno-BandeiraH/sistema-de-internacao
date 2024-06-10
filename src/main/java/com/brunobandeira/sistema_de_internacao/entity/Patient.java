@@ -35,7 +35,7 @@ public class Patient {
     private String maritalStatus;
     @NotNull
     @Min(11)
-    private int number;
+    private Long number;
 
     public UUID getId() {
         return id;
@@ -117,11 +117,11 @@ public class Patient {
         this.maritalStatus = maritalStatus;
     }
 
-    public int getNumber() {
+    public Long getNumber() {
         return number;
     }
 
-    public void setNumber(int number) {
+    public void setNumber(Long number) {
         this.number = number;
     }
 }
