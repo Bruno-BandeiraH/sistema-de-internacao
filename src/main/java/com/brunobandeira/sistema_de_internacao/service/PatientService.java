@@ -21,11 +21,7 @@ public class PatientService {
         return patientRepository.findAll();
     }
 
-    public Patient create(Patient patient) {
-        return patientRepository.save(patient);
-    }
-
-    public Patient update(Patient patient) {
+    public Patient createOrUpdate(Patient patient) {
         return patientRepository.save(patient);
     }
 

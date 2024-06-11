@@ -5,6 +5,7 @@ import com.brunobandeira.sistema_de_internacao.repository.MedicRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 
 @Service
@@ -20,15 +21,17 @@ public class MedicService {
         return medicRepository.findAll();
     }
 
-    public Medic create(Medic patient) {
+    public Medic createOrUpdate(Medic patient) {
         return medicRepository.save(patient);
     }
 
-    public Medic update(Medic patient) {
-        return medicRepository.save(patient);
-    }
-
-    public void deleteById(UUID id){
-        medicRepository.deleteById(id);
+    public boolean deleteById(UUID id){
+        Optional<Medic> medic = medicRepository.findById(id);
+        if(medic.isPresent()){
+            medicRepository.deleteById(id);
+            return true;
+        } else {
+            return false;
+        }
     }
 }

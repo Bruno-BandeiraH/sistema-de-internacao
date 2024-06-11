@@ -27,12 +27,12 @@ public class PatientController {
 
     @PostMapping
     public Patient create(@Valid @RequestBody Patient patient) {
-        return patientService.create(patient);
+        return patientService.createOrUpdate(patient);
     }
 
     @PutMapping
     public Patient update(@Valid @RequestBody Patient patient) {
-        return patientService.update(patient);
+        return patientService.createOrUpdate(patient);
     }
 
     @DeleteMapping("/{id}")
