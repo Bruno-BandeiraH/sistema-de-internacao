@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 
 @RestController
@@ -25,6 +26,11 @@ public class HospitalizationController {
         return hospitalizationService.getAll();
     }
 
+    @GetMapping("/id/{id}")
+    public Optional<Hospitalization> findById(@PathVariable  UUID id) {
+        return hospitalizationService.findById(id);
+    }
+
     @GetMapping("/name/{fullName}")
     public List<Hospitalization> findByPatientFullName(@PathVariable String fullName) {
         return hospitalizationService.findByPatientFullName(fullName);
@@ -36,7 +42,7 @@ public class HospitalizationController {
     }
 
     @GetMapping("/cpf/{cpf}")
-    public List<Hospitalization> findByPatientCpf(String cpf) {
+    public List<Hospitalization> findByPatientCpf(@PathVariable  String cpf) {
         return hospitalizationService.findByPatientCpf(cpf);
     }
 

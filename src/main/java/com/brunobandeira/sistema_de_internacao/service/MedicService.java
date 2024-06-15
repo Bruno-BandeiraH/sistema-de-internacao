@@ -23,7 +23,6 @@ public class MedicService {
         return medicRepository.findAll();
     }
 
-
     public List<Medic> findBySpeciality(String speciality) {
         return medicRepository.findBySpeciality(speciality);
     }
@@ -45,8 +44,7 @@ public class MedicService {
     }
 
     public boolean deleteById(UUID id){
-        Optional<Medic> medic = medicRepository.findById(id);
-        if(medic.isPresent()){
+        if(medicRepository.existsById(id)){
             medicRepository.deleteById(id);
             return true;
         } else {

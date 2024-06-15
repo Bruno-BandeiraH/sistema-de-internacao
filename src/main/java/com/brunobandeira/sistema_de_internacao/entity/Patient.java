@@ -24,6 +24,7 @@ public class Patient {
     @Column(name = "mother")
     private String motherName;
     @CPF
+    @Column(unique = true)
     private String cpf;
     @PastOrPresent
     private LocalDate birthDate;

@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 
 @RestController
@@ -57,7 +58,7 @@ public class MedicController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteById(UUID id) {
+    public ResponseEntity<Void> deleteById(@PathVariable UUID id) {
         boolean deleted = medicService.deleteById(id);
         if(deleted){
             return ResponseEntity.noContent().build();

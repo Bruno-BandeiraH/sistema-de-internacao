@@ -37,7 +37,7 @@ public class PatientController {
     }
 
     @GetMapping("/name/{fullName}")
-    public List<Patient> findByFullName(String fullName) {
+    public List<Patient> findByFullName(@PathVariable String fullName) {
         return patientService.findByFullName(fullName);
     }
 

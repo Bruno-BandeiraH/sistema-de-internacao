@@ -22,6 +22,10 @@ public class HospitalizationService {
         return hospitalizationRepository.findAll();
     }
 
+    public Optional<Hospitalization> findById(UUID id) {
+        return hospitalizationRepository.findById(id);
+    }
+
     public List<Hospitalization> findByPatientFullName(String fullName) {
         return hospitalizationRepository.findByPatientFullName(fullName);
     }
@@ -39,8 +43,7 @@ public class HospitalizationService {
     }
 
     public boolean deleteById(UUID id) {
-        Optional<Hospitalization> hospitalization = hospitalizationRepository.findById(id);
-        if(hospitalization.isPresent()){
+        if(hospitalizationRepository.existsById(id)){
             hospitalizationRepository.deleteById(id);
             return true;
         } else {

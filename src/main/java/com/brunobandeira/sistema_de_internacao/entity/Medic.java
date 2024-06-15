@@ -23,6 +23,7 @@ public class Medic {
     @Email
     private String email;
     @NotNull
+    @Column(unique = true)
     private int medicalId;
     @NotNull
     @Min(11)
