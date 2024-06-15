@@ -18,8 +18,6 @@ public class Medic {
     private String fullName;
     @NotBlank
     private String speciality;
-    @Past
-    private LocalDate birthDate;
     @Email
     private String email;
     @NotNull
@@ -51,14 +49,6 @@ public class Medic {
 
     public void setSpeciality(String speciality) {
         this.speciality = speciality;
-    }
-
-    public LocalDate getBirthDate() {
-        return birthDate;
-    }
-
-    public void setBirthDate(LocalDate birthDate) {
-        this.birthDate = birthDate;
     }
 
     public String getEmail() {

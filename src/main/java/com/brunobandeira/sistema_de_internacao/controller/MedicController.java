@@ -36,12 +36,7 @@ public class MedicController {
     public  List<Medic> findByFullName(@PathVariable String fullName) {
         return medicService.findByFullName(fullName);
     }
-
-    @GetMapping("/birth/{birthDate}")
-    public List<Medic> findByBirthDate(@PathVariable LocalDate birthDate) {
-        return medicService.findByBirthDate(birthDate);
-    }
-
+    
     @GetMapping("/medicalId/{medicalId}")
     public Medic findByMedicalId(@PathVariable int medicalId) {
         return medicService.findByMedicalId(medicalId);

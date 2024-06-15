@@ -31,10 +31,6 @@ public class MedicService {
         return medicRepository.findByFullName(fullName);
     }
 
-    public List<Medic> findByBirthDate(LocalDate birthDate) {
-        return medicRepository.findByBirthDate(birthDate);
-    }
-
     public Medic findByMedicalId(int medicalId) {
         return medicRepository.findByMedicalId(medicalId);
     }

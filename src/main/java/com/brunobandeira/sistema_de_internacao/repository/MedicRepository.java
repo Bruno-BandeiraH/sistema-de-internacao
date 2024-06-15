@@ -12,6 +12,5 @@ public interface MedicRepository extends JpaRepository<Medic, UUID> {
 
     List<Medic> findBySpeciality(String speciality);
     List<Medic> findByFullName(String fullName);
-    List<Medic> findByBirthDate(LocalDate birthDate);
     Medic findByMedicalId(int medicalId);
 }
