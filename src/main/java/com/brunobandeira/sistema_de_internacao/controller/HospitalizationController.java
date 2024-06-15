@@ -35,7 +35,7 @@ public class HospitalizationController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteById(UUID id) {
+    public ResponseEntity<Void> deleteById(@PathVariable UUID id) {
         boolean deleted = hospitalizationService.deleteById(id);
         if(deleted) {
             return ResponseEntity.noContent().build();
