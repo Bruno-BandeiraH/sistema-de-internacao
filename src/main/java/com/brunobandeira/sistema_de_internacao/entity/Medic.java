@@ -23,6 +23,8 @@ public class Medic {
     @Email
     private String email;
     @NotNull
+    private int medicalId;
+    @NotNull
     @Min(11)
     private Long number;
 
@@ -72,5 +74,13 @@ public class Medic {
 
     public void setNumber(Long number) {
         this.number = number;
+    }
+
+    public int getMedicalId() {
+        return medicalId;
+    }
+
+    public void setMedicalId(int medicalId) {
+        this.medicalId = medicalId;
     }
 }
