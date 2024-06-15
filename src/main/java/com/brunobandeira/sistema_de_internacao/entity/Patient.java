@@ -25,7 +25,7 @@ public class Patient {
     private String motherName;
     @CPF
     private String cpf;
-    @Past
+    @PastOrPresent
     private LocalDate birthDate;
     @NotBlank
     private String profession;
