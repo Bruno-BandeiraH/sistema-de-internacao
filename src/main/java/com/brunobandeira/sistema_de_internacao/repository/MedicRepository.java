@@ -11,7 +11,7 @@ import java.util.UUID;
 public interface MedicRepository extends JpaRepository<Medic, UUID> {
 
     List<Medic> findBySpeciality(String speciality);
-    List<Patient> findByFullName(String fullName);
+    List<Medic> findByFullName(String fullName);
     List<Medic> findByBirthDate(LocalDate birthDate);
     Medic findByMedicalId(int medicalId);
 }

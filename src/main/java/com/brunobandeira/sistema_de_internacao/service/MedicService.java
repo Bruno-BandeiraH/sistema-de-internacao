@@ -1,9 +1,11 @@
 package com.brunobandeira.sistema_de_internacao.service;
 
 import com.brunobandeira.sistema_de_internacao.entity.Medic;
+import com.brunobandeira.sistema_de_internacao.entity.Patient;
 import com.brunobandeira.sistema_de_internacao.repository.MedicRepository;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
@@ -19,6 +21,23 @@ public class MedicService {
 
     public List<Medic> getAll() {
         return medicRepository.findAll();
+    }
+
+
+    public List<Medic> findBySpeciality(String speciality) {
+        return medicRepository.findBySpeciality(speciality);
+    }
+
+    public  List<Medic> findByFullName(String fullName) {
+        return medicRepository.findByFullName(fullName);
+    }
+
+    public List<Medic> findByBirthDate(LocalDate birthDate) {
+        return medicRepository.findByBirthDate(birthDate);
+    }
+
+    public Medic findByMedicalId(int medicalId) {
+        return medicRepository.findByMedicalId(medicalId);
     }
 
     public Medic createOrUpdate(Medic patient) {

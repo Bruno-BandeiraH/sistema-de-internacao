@@ -1,11 +1,13 @@
 package com.brunobandeira.sistema_de_internacao.controller;
 
 import com.brunobandeira.sistema_de_internacao.entity.Medic;
+import com.brunobandeira.sistema_de_internacao.entity.Patient;
 import com.brunobandeira.sistema_de_internacao.service.MedicService;
 import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.UUID;
 
@@ -22,6 +24,26 @@ public class MedicController {
     @GetMapping
     public List<Medic> getlAll(){
         return medicService.getAll();
+    }
+
+    @GetMapping("/speciality/{speciality}")
+    public List<Medic> findBySpeciality(@PathVariable String speciality) {
+        return medicService.findBySpeciality(speciality);
+    }
+
+    @GetMapping("/name/{fullName}")
+    public  List<Medic> findByFullName(@PathVariable String fullName) {
+        return medicService.findByFullName(fullName);
+    }
+
+    @GetMapping("/birth/{birthDate}")
+    public List<Medic> findByBirthDate(@PathVariable LocalDate birthDate) {
+        return medicService.findByBirthDate(birthDate);
+    }
+
+    @GetMapping("/medicalId/{medicalId}")
+    public Medic findByMedicalId(@PathVariable int medicalId) {
+        return medicService.findByMedicalId(medicalId);
     }
 
     @PostMapping

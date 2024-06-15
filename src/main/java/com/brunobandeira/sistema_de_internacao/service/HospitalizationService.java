@@ -4,6 +4,7 @@ import com.brunobandeira.sistema_de_internacao.entity.Hospitalization;
 import com.brunobandeira.sistema_de_internacao.repository.HospitalizationRepository;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
@@ -19,6 +20,18 @@ public class HospitalizationService {
 
     public List<Hospitalization> getAll() {
         return hospitalizationRepository.findAll();
+    }
+
+    public List<Hospitalization> findByPatientFullName(String fullName) {
+        return hospitalizationRepository.findByPatientFullName(fullName);
+    }
+
+    public List<Hospitalization> findByPatientBirthDate(LocalDate birthDate) {
+        return  hospitalizationRepository.findByPatientBirthDate(birthDate);
+    }
+
+    public List<Hospitalization> findByPatientCpf(String cpf) {
+        return hospitalizationRepository.findByPatientCpf(cpf);
     }
 
     public Hospitalization createOrUpdate(Hospitalization hospitalization) {

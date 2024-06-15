@@ -6,6 +6,7 @@ import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.UUID;
 
@@ -22,6 +23,21 @@ public class HospitalizationController {
     @GetMapping
     public List<Hospitalization> findAll() {
         return hospitalizationService.getAll();
+    }
+
+    @GetMapping("/name/{fullName}")
+    public List<Hospitalization> findByPatientFullName(@PathVariable String fullName) {
+        return hospitalizationService.findByPatientFullName(fullName);
+    }
+
+    @GetMapping("/birthDate/{birthDate}")
+    public List<Hospitalization> findByPatientBirthDate(LocalDate birthDate) {
+        return  hospitalizationService.findByPatientBirthDate(birthDate);
+    }
+
+    @GetMapping("/cpf/{cpf}")
+    public List<Hospitalization> findByPatientCpf(String cpf) {
+        return hospitalizationService.findByPatientCpf(cpf);
     }
 
     @PostMapping
